@@ -1,6 +1,10 @@
-<button on:click={exportPdf}>PDF</button>
+<Button on:click={exportPdf}>
+  <Icon name="filetype-pdf"/>
+  PDF
+</Button>
 
 <script>
+  import { Button, Icon } from 'sveltestrap';
   import { jsPDF } from 'jspdf'
   import * as html2canvas from 'html2canvas'
 

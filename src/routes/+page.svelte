@@ -1,28 +1,24 @@
-<h1>
-  ResumeGenerator
-</h1>
-<LoginButton/>
-<Profile/>
-<GetRepositoriesButton/>
-<Exports/>
+<Styles/>
+<Container fruid class="text-center my-5">
+  <h1>
+    ResumeGenerator
+  </h1>
+  <LoginButton/>
+  <Resume/>
+  <Exports/>
+</Container>
 
 <script>
-  import GetRepositoriesButton from '../lib/components/GetRepositoriesButton.svelte'
+  import 'bootstrap/dist/css/bootstrap.min.css'
+  import { Styles, Container } from 'sveltestrap';
+  import LoginButton from "$lib/components/LoginButton.svelte";
+  import Exports from "$lib/components/Exports.svelte";
+  import Resume from "$lib/components/Resume.svelte";
 
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "firebase/app";
   import {onMount} from "svelte";
-  import LoginButton from "$lib/components/LoginButton.svelte";
-  import Profile from "$lib/components/Profile.svelte";
-  import Exports from "$lib/components/Exports.svelte";
-  // import { getAnalytics } from "firebase/analytics";
-  // import { GithubAuthProvider } from "firebase/auth";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
   onMount(() => {
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
       apiKey: "AIzaSyDJmsl4TM7swF7-yi145PIrPwAB_WKLu48",
       authDomain: "resume-generator-49460.firebaseapp.com",
@@ -33,7 +29,6 @@
       measurementId: "G-R7T5TEM1EE"
     };
 
-    // Initialize Firebase
     initializeApp(firebaseConfig);
   })
 </script>

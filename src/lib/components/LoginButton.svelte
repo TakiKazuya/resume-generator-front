@@ -1,5 +1,8 @@
 {#if !$authStore.isLoggedIn}
-  <button on:click={login}>LoginButton</button>
+  <Button on:click={login}>
+    <Icon name="github"/>
+    Login
+  </Button>
 {/if}
 
 <script>
@@ -7,6 +10,8 @@
   import authStore from "../stores/authStore";
   import {Octokit} from "octokit";
   import {gitHubUserStore} from "../stores/gitHub/userStore"
+  import { Button, Icon } from 'sveltestrap';
+  import {gitHubRepositoriesStore} from "../stores/gitHub/repositoriesStore";
 
   const provider = new GithubAuthProvider();
 
@@ -29,6 +34,8 @@
       const octokit = new Octokit({ auth: $authStore.token });
       const gitHubUser = await octokit.rest.users.getAuthenticated();
       $gitHubUserStore = gitHubUser.data;
+      const repos = await octokit.request('GET /user/repos', {})
+      $gitHubRepositoriesStore = repos.data;
     } catch(error) {
       const errorMessage = error.message;
       alert(errorMessage)
