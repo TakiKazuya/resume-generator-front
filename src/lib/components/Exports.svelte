@@ -1,7 +1,7 @@
 {#if $authStore.isLoggedIn}
   <h2>Export</h2>
   <PdfButton/>
-  <Button active="false">
+  <Button disabled color="success">
     <Icon name="file-excel"/>
     XLSX
   </Button>

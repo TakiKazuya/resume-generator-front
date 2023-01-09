@@ -1,4 +1,4 @@
-<Button on:click={exportPdf}>
+<Button color="danger" on:click={exportPdf}>
   <Icon name="filetype-pdf"/>
   PDF
 </Button>
