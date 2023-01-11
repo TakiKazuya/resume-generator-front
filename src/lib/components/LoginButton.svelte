@@ -1,7 +1,7 @@
 {#if !$authStore.isLoggedIn}
   <Button on:click={login}>
     <Icon name="github"/>
-    Login
+    Sign In with GitHub
   </Button>
 {/if}
 

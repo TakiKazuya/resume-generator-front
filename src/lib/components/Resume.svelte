@@ -1,14 +1,22 @@
 {#if $authStore.isLoggedIn}
-  <div id="capture">
+  <div id="capture" transition:fade>
     <Table style="width: 100%;" alien="center" bordered>
       <thead>
         <tr class="table-primary">
-          <td colspan="4" class="text-center">スキルシート</td>
+          <th colspan="4" class="text-center">スキルシート</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table-primary"><Label>フリガナ</Label></td>
+          <td><Input plaintext placeholder="レジュメ タロウ"/></td>
+          <td class="table-primary"><Label>年齢</Label></td>
+          <td><Input plaintext type="number"/></td>
         </tr>
         <tr>
-          <td><Label>氏名</Label></td>
+          <td class="table-primary"><Label>氏名</Label></td>
           <td><Input plaintext value={$gitHubUserStore.name}/></td>
-          <td><Label>性別</Label></td>
+          <td class="table-primary"><Label>性別</Label></td>
           <td>
             <Input type="select">
               <option>男性</option>
@@ -16,7 +24,13 @@
             </Input>
           </td>
         </tr>
-      </thead>
+        <tr>
+          <td class="table-primary"><Label>住所</Label></td>
+          <td><Input plaintext/></td>
+          <td class="table-primary"><Label>最寄駅／路線</Label></td>
+          <td><Input plaintext/></td>
+        </tr>
+      </tbody>
     </Table>
 
     <Table style="width: 100%;" alien="center" bordered>
@@ -44,7 +58,7 @@
           <td style="writing-mode: tb-rl">基本設計</td>
           <td style="writing-mode: tb-rl">詳細設計</td>
           <td style="writing-mode: tb-rl">製造</td>
-          <td style="writing-mode: tb-rl">テスト</td>
+          <td style="writing-mode: tb-rl">試験</td>
           <td style="writing-mode: tb-rl">運用・保守</td>
           <td style="writing-mode: tb-rl">構築</td>
           <td style="writing-mode: tb-rl">監視</td>
@@ -55,7 +69,7 @@
       </thead>
       <tbody>
       {#each $gitHubRepositoriesStore as repository, index}
-        <tr draggable="true">
+        <tr draggable="true" transition:fade>
           <td class="table-primary">{index + 1}</td>
           <td><Input plaintext value={repository.name}/></td>
           <td><Input plaintext value={repository.description}/></td>
@@ -83,4 +97,5 @@
   import {gitHubUserStore} from "../stores/gitHub/userStore"
   import {gitHubRepositoriesStore} from "../stores/gitHub/repositoriesStore"
   import { Table, Label, Input } from 'sveltestrap';
+  import { fade } from 'svelte/transition';
 </script>
