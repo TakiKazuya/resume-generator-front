@@ -1,16 +1,11 @@
-<Styles/>
-<Container fruid class="text-center my-5">
-  <h1>
-    ResumeGenerator
-  </h1>
-  <LoginButton/>
-  <Resume/>
-  <Exports/>
-</Container>
+<h1>
+  ResumeGenerator
+</h1>
+<LoginButton/>
+<Resume/>
+<Exports/>
 
 <script>
-  import 'bootstrap/dist/css/bootstrap.min.css'
-  import { Styles, Container } from 'sveltestrap';
   import LoginButton from "$lib/components/LoginButton.svelte";
   import Exports from "$lib/components/Exports.svelte";
   import Resume from "$lib/components/Resume.svelte";
