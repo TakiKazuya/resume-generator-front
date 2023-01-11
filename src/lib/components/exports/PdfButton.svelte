@@ -13,8 +13,9 @@
     html2canvas.default(source).then(capture => {
       const imgData = capture.toDataURL('image/png')
       const doc = new jsPDF()
-      const width = doc.internal.pageSize.width
-      doc.addImage(imgData, 'PNG', 10, 10, width * 0.9, 0)
+      const width = doc.internal.pageSize.getWidth();
+      const height = doc.internal.pageSize.getHeight();
+      doc.addImage(imgData, 'PNG', 10, 10, width * 0.9, height * 0.9);
       window.open(doc.output('bloburl'))
     })
   }
